@@ -67,9 +67,9 @@ public class TestFrame extends JFrame {
 		JButton btnNewButton_1 = new JButton("*");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				double zahl1, zahl2, erg;
+				zahl1 = Double.parseDouble(textField.getText());
+				zahl2 = Double.parseDouble(textField_1.getText());
 				erg = zahl1 * zahl2;
 				textField_2.setText(""+erg);
 			}
@@ -78,9 +78,9 @@ public class TestFrame extends JFrame {
 		JButton button_1 = new JButton("/");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				double zahl1, zahl2, erg;
+				zahl1 = Double.parseDouble(textField.getText());
+				zahl2 = Double.parseDouble(textField_1.getText());
 				erg = zahl1 / zahl2;
 				textField_2.setText(""+erg);
 			}
@@ -91,9 +91,9 @@ public class TestFrame extends JFrame {
 		JButton btnNewButton = new JButton("-");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				double zahl1, zahl2, erg;
+				zahl1 = Double.parseDouble(textField.getText());
+				zahl2 = Double.parseDouble(textField_1.getText());
 				erg = zahl1 - zahl2;
 				textField_2.setText(""+erg);
 			}
@@ -103,10 +103,9 @@ public class TestFrame extends JFrame {
 		JButton button = new JButton("+");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				double zahl1, zahl2, erg;
+				zahl1 = Double.parseDouble(textField.getText());
+				zahl2 = Double.parseDouble(textField_1.getText());
 				erg = zahl1 + zahl2;
 				textField_2.setText(""+erg);
 			}
