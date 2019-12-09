@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JTabbedPane;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
@@ -148,6 +149,15 @@ public class TestFrame extends JFrame {
 		textField_3.setColumns(10);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (comboBox.getSelectedIndex() == 0) {
+					textField_4.setText(Integer.toBinaryString(Integer.parseInt(textField_3.getText())));
+				}else if (comboBox.getSelectedIndex() == 1) {
+					textField_4.setText(Integer.toHexString(Integer.parseInt(textField_3.getText())));
+				}
+			}
+		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Binary", "Hex"}));
 		panel_3.add(comboBox);
 		
