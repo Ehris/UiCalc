@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<feature automatic="selected" name="calculator"/><feature automatic="selected" name="calculate"/><feature automatic="selected" name="Basic"/><feature automatic="selected" name="add"/><feature automatic="selected" name="sub"/><feature automatic="selected" name="mult"/><feature automatic="selected" name="div"/><feature name="extend"/><feature name="logarythm"/><feature name="sin"/><feature name="cos"/><feature name="save"/><feature name="log"/><feature name="display"/><feature name="select"/><feature automatic="selected" name="Interface"/><feature manual="selected" name="german"/><feature automatic="unselected" name="english"/><feature name="Graphs"/><feature name="plot"/><feature name="calculate_point"/><feature name="Convert"/><feature name="binary"/><feature name="Hex"/><feature name="Octa"/>
+</configuration>

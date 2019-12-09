@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/><graphics key="legendautolayout" value="true"/><graphics key="showshortnames" value="false"/><graphics key="layout" value="horizontal"/><graphics key="showcollapsedconstraints" value="true"/><graphics key="legendhidden" value="false"/><graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="calculator">
+			<and abstract="true" mandatory="true" name="calculate">
+				<and abstract="true" mandatory="true" name="Basic">
+					<feature mandatory="true" name="add"/><feature mandatory="true" name="sub"/><feature mandatory="true" name="mult"/><feature mandatory="true" name="div"/>
+				</and>
+				<and abstract="true" name="extend">
+					<feature name="logarythm"/><feature name="sin"/><feature name="cos"/>
+				</and>
+			</and>
+			<feature name="save"/>
+			<and name="log">
+				<and name="display">
+					<feature name="select"/>
+				</and>
+			</and>
+			<alt mandatory="true" name="Interface">
+				<feature name="german"/><feature name="english"/>
+			</alt>
+			<and name="Graphs">
+				<feature name="plot"/><feature name="calculate_point"/>
+			</and>
+			<and name="Convert">
+				<feature name="binary"/><feature name="Hex"/><feature name="Octa"/>
+			</and>
+		</and>
+	</struct>
+</featureModel>
