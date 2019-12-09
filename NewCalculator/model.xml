@@ -9,9 +9,9 @@
 				<and abstract="true" mandatory="true" name="Basic">
 					<feature mandatory="true" name="add"/><feature mandatory="true" name="sub"/><feature mandatory="true" name="mult"/><feature mandatory="true" name="div"/>
 				</and>
-				<and abstract="true" name="extend">
+				<or abstract="true" name="extend">
 					<feature name="logarythm"/><feature name="sin"/><feature name="cos"/>
-				</and>
+				</or>
 			</and>
 			<feature name="save"/>
 			<and name="log">

@@ -10,6 +10,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
@@ -25,7 +26,11 @@ public class TestFrame extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField txtFunktion;
-
+	
+	
+	//private String[] lang= {"Rechen","Verlauf","Graph","Umrechnen"};
+	private String[] lang= {"Calculate","Log","Graph","Convert"};
+	
 	/**
 	 * Launch the application.
 	 */
@@ -34,6 +39,7 @@ public class TestFrame extends JFrame {
 			public void run() {
 				try {
 					TestFrame frame = new TestFrame();
+					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +63,7 @@ public class TestFrame extends JFrame {
 		contentPane.add(tabbedPane, BorderLayout.NORTH);
 		
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("Calculate", null, panel, null);
+		tabbedPane.addTab(lang[0], null, panel, null);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		
 		textField = new JTextField();
@@ -125,13 +131,13 @@ public class TestFrame extends JFrame {
 		textField_2.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Log", null, panel_1, null);
+		tabbedPane.addTab(lang[1], null, panel_1, null);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		panel_1.add(comboBox_1);
 		
 		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("Graph", null, panel_2, null);
+		tabbedPane.addTab(lang[2], null, panel_2, null);
 		
 		txtFunktion = new JTextField();
 		txtFunktion.setText("Funktion");
@@ -142,7 +148,7 @@ public class TestFrame extends JFrame {
 		panel_2.add(btnPlot);
 		
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("Convert", null, panel_3, null);
+		tabbedPane.addTab(lang[3], null, panel_3, null);
 		
 		textField_3 = new JTextField();
 		panel_3.add(textField_3);
