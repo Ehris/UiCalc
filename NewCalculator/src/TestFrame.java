@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.ibm.xtq.xslt.xylem.instructions.LangInstruction;
+
 import javax.swing.JTabbedPane;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
@@ -26,11 +28,13 @@ public class TestFrame extends JFrame {
 	private JTextField textField_4;
 	private JTextField txtFunktion;
 	private JComboBox<String> comboBox_1;
+	private static boolean lang = true; //german = true -> eng = false
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+//		lang = false;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -41,6 +45,45 @@ public class TestFrame extends JFrame {
 				}
 			}
 		});
+	}
+	
+	public String lang(String string) {
+		
+		if (lang) {
+			
+			switch (string) {
+			case "Berechnen":
+				return "Berechnen";
+			case "Verlauf":
+				return "Verlauf";
+			case "Funktion":
+				return "Funktion";
+			case "Plot":
+				return "Zeichnen";
+			case "Convert":
+				return "Umrechnen";
+			default:
+				break;
+			}
+			
+		}else {
+			switch (string) {
+			case "Berechnen":
+				return "Calculate";
+			case "Verlauf":
+				return "Log";
+			case "Funktion":
+				return "Funktion";
+			case "Plot":
+				return "Plot";
+			case "Convert":
+				return "Convert";
+			default:
+				break;
+			}
+		}
+		
+		return "Error";
 	}
 
 	/**
@@ -58,7 +101,7 @@ public class TestFrame extends JFrame {
 		contentPane.add(tabbedPane, BorderLayout.NORTH);
 		
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("Calculate", null, panel, null);
+		tabbedPane.addTab(lang("Berechnen"), null, panel, null);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		
 		textField = new JTextField();
@@ -68,9 +111,9 @@ public class TestFrame extends JFrame {
 		JButton btnNewButton_1 = new JButton("*");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				float zahl1, zahl2, erg;
+				zahl1 = Float.parseFloat(textField.getText());
+				zahl2 = Float.parseFloat(textField_1.getText());
 				erg = zahl1 * zahl2;
 				textField_2.setText(""+erg);
 				comboBox_1.addItem(zahl1+"*"+zahl2+"="+erg);
@@ -81,9 +124,9 @@ public class TestFrame extends JFrame {
 		JButton button_1 = new JButton("/");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				float zahl1, zahl2, erg;
+				zahl1 = Float.parseFloat(textField.getText());
+				zahl2 = Float.parseFloat(textField_1.getText());
 				erg = zahl1 / zahl2;
 				textField_2.setText(""+erg);
 				comboBox_1.addItem(zahl1+"/"+zahl2+"="+erg);
@@ -96,9 +139,9 @@ public class TestFrame extends JFrame {
 		JButton btnNewButton = new JButton("-");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				float zahl1, zahl2, erg;
+				zahl1 = Float.parseFloat(textField.getText());
+				zahl2 = Float.parseFloat(textField_1.getText());
 				erg = zahl1 - zahl2;
 				textField_2.setText(""+erg);
 				comboBox_1.addItem(zahl1+"-"+zahl2+"="+erg);
@@ -110,9 +153,9 @@ public class TestFrame extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int zahl1, zahl2, erg;
-				zahl1 = Integer.parseInt(textField.getText());
-				zahl2 = Integer.parseInt(textField_1.getText());
+				float zahl1, zahl2, erg;
+				zahl1 = Float.parseFloat(textField.getText());
+				zahl2 = Float.parseFloat(textField_1.getText());
 				erg = zahl1 + zahl2;
 				textField_2.setText(""+erg);
 				comboBox_1.addItem(zahl1+"+"+zahl2+"="+erg);
@@ -133,7 +176,7 @@ public class TestFrame extends JFrame {
 		textField_2.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Log", null, panel_1, null);
+		tabbedPane.addTab(lang("Verlauf"), null, panel_1, null);
 		
 		comboBox_1 = new JComboBox();
 		comboBox_1.addActionListener(new ActionListener() {
@@ -165,15 +208,15 @@ public class TestFrame extends JFrame {
 		tabbedPane.addTab("Graph", null, panel_2, null);
 		
 		txtFunktion = new JTextField();
-		txtFunktion.setText("Funktion");
+		txtFunktion.setText(lang("Funktion"));
 		panel_2.add(txtFunktion);
 		txtFunktion.setColumns(10);
 		
-		JButton btnPlot = new JButton("Plot");
+		JButton btnPlot = new JButton(lang("Plot"));
 		panel_2.add(btnPlot);
 		
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("Convert", null, panel_3, null);
+		tabbedPane.addTab(lang("Convert"), null, panel_3, null);
 		
 		textField_3 = new JTextField();
 		panel_3.add(textField_3);
