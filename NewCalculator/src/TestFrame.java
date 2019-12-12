@@ -26,8 +26,9 @@ public class TestFrame extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	private JTextField txtFunktion;
+	private JTextField txt_eingabe;
 	private JComboBox<String> comboBox_1;
+	private JTextField txt_ausgabe;
 	private static boolean lang = true; //german = true -> eng = false
 
 	/**
@@ -62,6 +63,9 @@ public class TestFrame extends JFrame {
 				return "Zeichnen";
 			case "Convert":
 				return "Umrechnen";
+			case "Root Point":
+				return "Nullpunkt";
+				
 			default:
 				break;
 			}
@@ -78,6 +82,8 @@ public class TestFrame extends JFrame {
 				return "Plot";
 			case "Convert":
 				return "Convert";
+			case "Root Point":
+				return "Root Point";
 			default:
 				break;
 			}
@@ -205,16 +211,54 @@ public class TestFrame extends JFrame {
 		panel_1.add(comboBox_1);
 		
 		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("Graph", null, panel_2, null);
+		//tabbedPane.addTab("Graph", null, panel_2, null);
 		
-		txtFunktion = new JTextField();
-		txtFunktion.setText(lang("Funktion"));
-		panel_2.add(txtFunktion);
-		txtFunktion.setColumns(10);
+		JLabel lblRootPoint = new JLabel(lang("Root Point"));
+		panel_2.add(lblRootPoint);
+		
+		txt_eingabe = new JTextField();
+		txt_eingabe.setText("1x^1+0\r\n");
+		panel_2.add(txt_eingabe);
+		txt_eingabe.setColumns(10);
+		
+		JButton but = new JButton("=");
+		but.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String ein = txt_eingabe.getText();
+				double m = Double.valueOf(ein.substring(0, 1));
+				double hoch = Double.valueOf(ein.substring(3, 4));
+				double c = Double.valueOf(ein.substring(5, 6));
+				if(ein.contains("+")) {
+					double ergebnis = Math.pow(-m/c,hoch);
+					if(c == 0) {
+						ergebnis = 0;
+					}
+					txt_ausgabe.setText(String.valueOf(ergebnis));
+					
+				}
+				else {
+					double ergebnis = Math.pow(m/c,hoch);
+					if(c == 0) {
+						ergebnis = 0;
+					}
+					txt_ausgabe.setText(String.valueOf(ergebnis));
+				}	
+			}
+		});
+		panel_2.add(but);
+		
+		txt_ausgabe = new JTextField();
+		panel_2.add(txt_ausgabe);
+		txt_ausgabe.setColumns(10);
 		
 		JButton btnPlot = new JButton(lang("Plot"));
+		btnPlot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		panel_2.add(btnPlot);
-		
+
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab(lang("Convert"), null, panel_3, null);
 		
